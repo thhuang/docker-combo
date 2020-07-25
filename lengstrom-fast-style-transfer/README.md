@@ -34,12 +34,12 @@ docker run -v $(pwd)/input:/app/input:ro -v $(pwd)/output:/app/output \
 #### Available styles
 <table>
 　<tr>
-    <td align='center'>la_muse</td>
-    <td align='center'>rain_princess</td>
-    <td align='center'>scream</td>
-    <td align='center'>udnie</td>
     <td align='center'>wave</td>
+    <td align='center'>udnie</td>
+    <td align='center'>rain_princess</td>
+    <td align='center'>la_muse</td>
     <td align='center'>wreck</td>
+    <td align='center'>scream</td>
 　</tr>
 　<tr>
     <td align='center'><a href='https://github.com/thhuang/fast-style-transfer/blob/master/examples/style/wave.jpg'><img src='https://github.com/thhuang/fast-style-transfer/blob/master/examples/thumbs/wave.jpg?raw=true' height='200px'></a></td>
