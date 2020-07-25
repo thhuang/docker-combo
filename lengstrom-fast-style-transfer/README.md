@@ -12,12 +12,17 @@
     docker build -t fast-style-transfer .
     ```
 
-## Execute
+## Execution
+Currently only support single image style transformation.
+
 ### Quick try
+The output image `pier-wave.png` can be found in folder `output`
 ```shell
 docker run -v $(pwd)/input:/app/input:ro -v $(pwd)/output:/app/output fast-style-transfer
 ```
+
 ### Usage
+Transform image `<input_image>` to style `<style>` and output the result to `<output_image>`. The input image `<input_image>` should be placed in folder `<input>` and the output image can be found in folder `output`
 ```shell
 docker run -v $(pwd)/input:/app/input:ro -v $(pwd)/output:/app/output \
     fast-style-transfer python run.py \
@@ -25,8 +30,9 @@ docker run -v $(pwd)/input:/app/input:ro -v $(pwd)/output:/app/output \
     --in-path    input/<input_image> \
     --out-path   output/<output_image>
 ```
-#### Available styles for `<style>`:
-<table border="1">
+
+#### Available styles:
+<table>
 　<tr>
     <td align='center'>la_muse</td>
     <td align='center'>rain_princess</td>
@@ -44,7 +50,9 @@ docker run -v $(pwd)/input:/app/input:ro -v $(pwd)/output:/app/output \
     <td align='center'><a href='https://github.com/thhuang/fast-style-transfer/blob/master/examples/style/the_scream.jpg'><img src='https://github.com/thhuang/fast-style-transfer/blob/master/examples/thumbs/the_scream.jpg?raw=true' height='200px'></a></td>
 　</tr>
 </table>
+
 #### Example
+Transform image `pier.jpg` to `udnie` style and output to `pier-udnie.png`
 ```shell
 docker run -v $(pwd)/input:/app/input:ro -v $(pwd)/output:/app/output \
     fast-style-transfer python run.py \
