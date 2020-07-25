@@ -1,19 +1,22 @@
 # [Fast Style Transfer](https://github.com/lengstrom/fast-style-transfer) by [lengstrom](https://github.com/lengstrom)
 
 ## Preparation
-1. [Install Docker](https://docs.docker.com/install/)
+1. [Install Docker](https://docs.docker.com/install/) (skip this step if Docker has already been installed)
     - [Install Docker Engine - Community on Ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/)
     - [Install Docker Engine - Community on CentOS](https://docs.docker.com/install/linux/docker-ce/centos/)
     - [Install Docker Desktop on Mac](https://docs.docker.com/docker-for-mac/install/)
     - [Install Docker Desktop on Windows](https://docs.docker.com/docker-for-windows/install/)
     - [Other information](https://docs.docker.com/install/)
-2. Build the environment for the tool
+2. Build the environment for the application
     ```shell
     docker build -t fast-style-transfer .
     ```
 
 ## Execution
 Currently only support single image style transformation.
+
+#### Notes
+The recommended maximum input image size is 1024x1024 pixels. Since the style transformation is performed without the use of a GPU, the required CPU and memory resources may exceed the limit. If you would like to increase the CPU and memory limits, you can update them with [`docker update`](https://docs.docker.com/engine/reference/commandline/update/) or set them in the `Preferences/Resources` section in the Docker GUI.
 
 ### Quick try
 The output image `pier-wave.png` can be found in folder `output`
@@ -22,7 +25,7 @@ docker run -v $(pwd)/input:/app/input:ro -v $(pwd)/output:/app/output fast-style
 ```
 
 ### Usage
-Transform image `<input_image>` to style `<style>` and output the result to `<output_image>`. The input image `<input_image>` should be placed in folder `<input>` and the output image can be found in folder `output`
+Transform image `<input_image>` to style `<style>` and output the result to `<output_image>`. The input image `<input_image>` should be placed in folder `input` and the output image can be found in folder `output`
 ```shell
 docker run -v $(pwd)/input:/app/input:ro -v $(pwd)/output:/app/output \
     fast-style-transfer python run.py \
