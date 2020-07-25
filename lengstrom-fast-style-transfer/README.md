@@ -1,4 +1,5 @@
 # [Fast Style Transfer](https://github.com/lengstrom/fast-style-transfer) by [lengstrom](https://github.com/lengstrom)
+Fast style transfer implemented in Python with TensorFlow. For more information, please refer to the github repository [lengstrom/fast-style-transfer](https://github.com/lengstrom/fast-style-transfer).
 
 ## Preparation
 1. [Install Docker](https://docs.docker.com/install/) (skip this step if Docker has already been installed)
