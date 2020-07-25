@@ -31,7 +31,7 @@ docker run -v $(pwd)/input:/app/input:ro -v $(pwd)/output:/app/output \
     --out-path   output/<output_image>
 ```
 
-#### Available styles:
+#### Available styles
 <table>
 　<tr>
     <td align='center'>la_muse</td>
