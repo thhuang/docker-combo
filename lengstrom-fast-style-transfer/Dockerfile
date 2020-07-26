@@ -1,4 +1,5 @@
 FROM tensorflow/tensorflow:0.11.0
+LABEL maintainer="tzhsn.huang@gmail.com"
 
 # install git
 RUN apt-get update

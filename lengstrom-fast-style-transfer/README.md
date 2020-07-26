@@ -8,9 +8,9 @@ Fast style transfer implemented in Python with TensorFlow. For more information,
     - [Install Docker Desktop on Mac](https://docs.docker.com/docker-for-mac/install/)
     - [Install Docker Desktop on Windows](https://docs.docker.com/docker-for-windows/install/)
     - [Other information](https://docs.docker.com/install/)
-2. Build the environment for the application
+2. [Optional] If you would like to build the docker image from scratch, you can use the following command to build it:
     ```shell
-    docker build -t fast-style-transfer .
+    docker build -t <image_name> .
     ```
 
 ## Execution
@@ -22,14 +22,14 @@ The recommended maximum input image size is 1024x1024 pixels. Since the style tr
 ### Quick try
 The output image `pier-wave.png` can be found in folder `output`
 ```shell
-docker run -v $(pwd)/input:/app/input:ro -v $(pwd)/output:/app/output fast-style-transfer
+docker run --rm -v $(pwd)/input:/app/input:ro -v $(pwd)/output:/app/output tzuhsuanhuang/fast-style-transfer
 ```
 
 ### Usage
 Transform image `<input_image>` to style `<style>` and output the result to `<output_image>`. The input image `<input_image>` should be placed in folder `input` and the output image can be found in folder `output`
 ```shell
-docker run -v $(pwd)/input:/app/input:ro -v $(pwd)/output:/app/output \
-    fast-style-transfer python run.py \
+docker run --rm -v $(pwd)/input:/app/input:ro -v $(pwd)/output:/app/output \
+    tzuhsuanhuang/fast-style-transfer python run.py \
     --checkpoint styles/<style>.ckpt \
     --in-path    input/<input_image> \
     --out-path   output/<output_image>
@@ -58,8 +58,8 @@ docker run -v $(pwd)/input:/app/input:ro -v $(pwd)/output:/app/output \
 #### Example
 Transform image `pier.jpg` to `udnie` style and output to `pier-udnie.png`
 ```shell
-docker run -v $(pwd)/input:/app/input:ro -v $(pwd)/output:/app/output \
-    fast-style-transfer python run.py \
+docker run --rm -v $(pwd)/input:/app/input:ro -v $(pwd)/output:/app/output \
+    tzuhsuanhuang/fast-style-transfer python run.py \
     --checkpoint styles/udnie.ckpt \
     --in-path    input/pier.jpg \
     --out-path   output/pier-udnie.png
