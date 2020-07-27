@@ -20,17 +20,18 @@ Currently only support single image style transformation.
 The recommended maximum input image size is 1024x1024 pixels. Since the style transformation is performed without the use of a GPU, the required CPU and memory resources may exceed the limit. If you would like to increase the CPU and memory limits, you can update them with [`docker update`](https://docs.docker.com/engine/reference/commandline/update/) or set them in the `Preferences/Resources` section in the Docker GUI.
 
 ### Quick try
-Clone this repository and run the following command under `lengstrom-fast-style-transfer` folder. The output image `pier-wave.png` can be found in folder `output`
+The output image `taipei-wave.png` can be found in current directory!
 ```shell
-docker run --rm -v $(pwd)/input:/app/input:ro -v $(pwd)/output:/app/output tzuhsuanhuang/fast-style-transfer
+docker run --rm -v $(pwd):/app tzuhsuanhuang/fast-style-transfer:cpu
 ```
 
 ### Usage
 Transform image `<input_image>` to style `<style>` and output the result to `<output_image>`. The input image `<input_image>` should be placed in folder `input` and the output image can be found in folder `output`
 ```shell
-docker run --rm -v $(pwd)/input:/app/input:ro -v $(pwd)/output:/app/output \
-    tzuhsuanhuang/fast-style-transfer python run.py \
-    --checkpoint styles/<style>.ckpt \
+docker run --rm \
+    -v $(pwd)/input:/app/input:ro -v $(pwd)/output:/app/output \
+    tzuhsuanhuang/fast-style-transfer:cpu python /repo/run.py \
+    --checkpoint /repo/styles/<style>.ckpt \
     --in-path    input/<input_image> \
     --out-path   output/<output_image>
 ```
@@ -58,9 +59,10 @@ docker run --rm -v $(pwd)/input:/app/input:ro -v $(pwd)/output:/app/output \
 #### Example
 Transform image `pier.jpg` to `udnie` style and output to `pier-udnie.png`
 ```shell
-docker run --rm -v $(pwd)/input:/app/input:ro -v $(pwd)/output:/app/output \
-    tzuhsuanhuang/fast-style-transfer python run.py \
-    --checkpoint styles/udnie.ckpt \
+docker run --rm \
+    -v $(pwd)/input:/app/input:ro -v $(pwd)/output:/app/output \
+    tzuhsuanhuang/fast-style-transfer:cpu python /repo/run.py \
+    --checkpoint /repo/styles/udnie.ckpt \
     --in-path    input/pier.jpg \
     --out-path   output/pier-udnie.png
 ```
