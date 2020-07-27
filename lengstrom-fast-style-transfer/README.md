@@ -20,7 +20,7 @@ Currently only support single image style transformation.
 The recommended maximum input image size is 1024x1024 pixels. Since the style transformation is performed without the use of a GPU, the required CPU and memory resources may exceed the limit. If you would like to increase the CPU and memory limits, you can update them with [`docker update`](https://docs.docker.com/engine/reference/commandline/update/) or set them in the `Preferences/Resources` section in the Docker GUI.
 
 ### Quick try
-The output image `pier-wave.png` can be found in folder `output`
+Clone this repository and run the following command under `lengstrom-fast-style-transfer` folder. The output image `pier-wave.png` can be found in folder `output`
 ```shell
 docker run --rm -v $(pwd)/input:/app/input:ro -v $(pwd)/output:/app/output tzuhsuanhuang/fast-style-transfer
 ```
